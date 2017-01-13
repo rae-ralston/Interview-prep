@@ -1,3 +1,4 @@
+//Jan 11th 2017
 var alice = [5,6,7]
 var bob = [3,6,10]
 
@@ -21,12 +22,3 @@ score and see which was larger, then add that to a score counter.
 
 TODO: what's the O(n) on this? */
 
-  describe('insertFirst', () => {
-
-    it('Inserts a node with the provided data to the head of the list', () => {
-      const aLinkedList = new LinkedList()
-
-      expect(() => aLinkedList.insertFirst('foo'))
-        .to.alter(() => aLinkedList.size(), { from: 0, to: 1 })
-      expect(() => aLinkedList[0].to.equal('foo'))
-    })

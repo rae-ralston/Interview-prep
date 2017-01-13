@@ -1,4 +1,4 @@
-//FIRST GO Jan 11th, 2017
+//Jan 10th, 2017
 
 let sumArray = arr => {
   let returnVal = 0
