@@ -3,7 +3,6 @@ n = array.length
 k = number of times to rotate array
 q = queries, the element at this index after rotation
 
-
 Sample Input
 
 3 2 3
