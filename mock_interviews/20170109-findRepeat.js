@@ -8,6 +8,42 @@
 // findRepeat('aaaaf') => 'aaaaf'
 
 
+
+let findRepeat = string => {
+  console.log('THIS STRING ========', string)
+  let returnString = ""
+  for(let i = 0; i < string.length/i+1; i++){
+    returnString += string[i]
+    for(let j = 0; j < string.length; j ++){
+      let repeatCounter = 0
+      let compareStringSlices = returnString == string.slice(j, j[returnString.length])
+      if(compareStringSlices){
+        j += returnString.length
+        repeatCounter += 1
+      }
+      console.log('repeatCounter', repeatCounter)
+      console.log('intake / return', string.length/returnString.length)
+      if(repeatCounter === string.length/returnString.length) {
+        console.log('inside repeatCounter', returnString)
+        return returnString.slice(0, repeatCounter-1)
+      }
+    }
+  }
+
+  console.log('returnString', returnString)
+  return returnString
+}
+
+
+
+
+
+
+
+
+
+
+
 // let checkRepeat = (repeat, originalString) => {
 //   for( let i = 0; i <= originalString.length; i){
 //     if(!repeat = origionalString){
