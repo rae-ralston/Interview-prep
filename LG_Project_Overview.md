@@ -62,7 +62,9 @@ Technologies Used:
 
 ##Week 11
 #### Dual Team Lead: Word Scramble Game
-September 19th, 2016  | [Team 1 GH](https://github.com/arayi/gorgeous-crab), [Team 2 GH](https://github.com/robertparker077/Scramble-)
+September 19th, 2016  | 
+[Team 1 GH: Polished Word Scramble](https://github.com/arayi/gorgeous-crab)
+[Team 2 GH: Star Wars Word Scramble](https://github.com/robertparker077/Scramble-)
 
 Technologies Used: 
 
