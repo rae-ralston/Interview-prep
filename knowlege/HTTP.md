@@ -1,9 +1,15 @@
 HTTP
-    Verbs
-    Headers
-    Status codes
-    RESTful routes
-    Web Sockets
-    Request anatomy
-    Response anatomy
-    CORS
+Hypertext Transfer Protocol
+    http is a request/response protocol that makes the internet work. it's a client-server model where the browser is the client and the originating program/computer is the server. The CLIENT submitsan HTTP 
+
+- Verbs
+    + GET, PUT, POST, DELETE,
+- Headers
+    + Information about the request or response
+- Status codes
+- RESTful routes
+- Web Sockets
+- Request anatomy
+    + HTTP version, 
+- Response anatomy
+- CORS
