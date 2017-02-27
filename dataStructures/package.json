@@ -1,0 +1,28 @@
+{
+  "name": "DataStructures",
+  "version": "0.0.0",
+  "private": false,
+  "description": "Working through Data Structures",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachel-ftw/hangman.git"
+  },
+  "author": "Rachel Ralston",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rachel-ftw/hangman/issues"
+  },
+  "homepage": "https://github.com/rachel-ftw/hangman#readme",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "debug": "node ./bin/www --inspect",
+    "test": "mocha --compilers js:babel-core/register"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
