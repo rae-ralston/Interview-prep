@@ -14,7 +14,7 @@ describe('Stack', () => {
   })
 
   context('#push', () => {
-    it('will add elements to a stack', () => {
+    it('adds elements to a stack', () => {
       stack.push('hi')
       expect(stack.content).to.eql(['hi'])
       expect(stack.length).to.equal(1)
@@ -26,7 +26,7 @@ describe('Stack', () => {
   })
 
   context('#pop', () => {
-    it('will return null for an empty stack', () => {
+    it('returns null for an empty stack', () => {
       let empty = new Stack()
 
       empty.pop()
@@ -34,55 +34,53 @@ describe('Stack', () => {
       expect(empty.length).to.equal(0)
     })
 
-    it('will return the top element and decrament length', () => {
+    it('returns the top element and decrament length', () => {
       stack.push('blues')
       stack.push('hello')
       expect(stack.pop()).to.equal('hello')
       expect(stack.length).to.equal(1)
     })
-
   })
 
-  // context('#peak', () => {
+  context('#peak', () => {
+    it('returns null for empty stack', () => {
+      expect(stack.peak()).to.equal(null)
+      expect(stack.length).to.equal(0) 
+    })
     
-  //   it('.peak will return top element but it will stay in array', () => {
-  //     stack.push('hi')
-  //     stack.push('hello')
-  //     expect(stack.peak()).to.equal('hello')
-  //     expect(stack).should.have.length(2)
-  //   })
+    it('returns top element but it will stay in array', () => {
+      stack.push('hi')
+      stack.push('hello')
+      expect(stack.peak()).to.equal('hello')
+      expect(stack.length).to.equal(2)
+    })
+  })
 
-  //   it('.peak will return null for empty stack', () => {
-  //     expect(stack.peak()).to.equal(null)
-  //     expect(stack).should.have.length(0) // ??
-  //   })
-  // }
+  context('#isEmpth', () => {
+    it('returns true for empty stack', () => {
+      expect(stack.isEmpty()).to.equal(true)
+    })
 
-  // context('#isEmpth', () => {
-  //   it('.isEmpty will return true for empty stack', () => {
-  //     expect(stack.isEmpty()).to.equal(true)
-  //   })
+    it('returns false for non-empty stack', () => {
+      stack.push('hello')
+      expect(stack.isEmpty()).to.equal(false)
+    })
+  })
 
-  //   it('.isEmpty will return false for non-empty stack', () => {
-  //     stack.push('hello')
-  //     expect(stack.isEmpty()).to.equal(false)
-  //   })
-  // }
+  context('#length', () => {
+    it('returns 0 for empty stack', () => {
+      expect(stack.Length()).to.equal(0)
+    })
 
-  // context('#length', () => {
-  //   it('.length will return 0 for empty stack', () => {
-  //     expect(stack.length()).to.equal(0)
-  //   })
+    it('returns 1 for 1 unit stack', () => {
+      stack.push('hello')
+      expect(stack.Length()).to.equal(1)
+    })
 
-  //   it('.length will return 1 for 1 unit stack', () => {
-  //     stack.push('hello')
-  //     expect(stack.length()).to.equal(1)
-  //   })
-
-  //   it('.length will return 2 for 2 unit stack', () => {
-  //     stack.push('hello')
-  //     stack.push('oh hai')
-  //     expect(stack.length()).to.equal(2)
-  //   })
-  // }
+    it('returns 2 for 2 unit stack', () => {
+      stack.push('hello')
+      stack.push('oh hai')
+      expect(stack.Length()).to.equal(2)
+    })
+  })
 })
