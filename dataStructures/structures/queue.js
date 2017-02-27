@@ -1,11 +1,3 @@
-// const queue = new Queue()
-// queue.enqueue("foo") // adds an element (the string "foo") to the back of the queue.
-// queue.dequeue()      // returns and removes the front element in the queue or null if the queue is empty.
-// queue.front()        // returns the front element in queue or null if the queue is empty.
-// queue.back()         // returns the back element in the queue or null if the queue is empty.
-// queue.isEmpty()      // returns true if the queue is empty or false if not.
-// queue.length()       // returns the number of elements in the queue
-
 export default class Queue {
   constructor() {
     this.content = []
