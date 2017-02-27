@@ -14,8 +14,6 @@
   },
   "homepage": "https://github.com/rachel-ftw/hangman#readme",
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "debug": "node ./bin/www --inspect",
     "test": "mocha --compilers js:babel-core/register"
   },
   "devDependencies": {
