@@ -5,7 +5,6 @@ export default class PriorityQueue {
   }
 
   enqueue(element, priority) {
-    if(this. content === null) {content = []}
     if(priority < 1 || typeof priority !== 'number') {
       throw new Error('This Priority isn\'t valid')
     }

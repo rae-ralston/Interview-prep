@@ -18,16 +18,16 @@ describe.only('PriorityQueue', () => {
   context('#enqueue', () => {
     it('adds elements to a queue', () => {
       Pqueue.enqueue('hi', 1)
-      expect(Pqueue.content).to.eql([{priority: 1, element: 'hi'}])
+      expect(Pqueue.front()).to.eql({priority: 1, element: 'hi'})
       expect(Pqueue.length).to.equal(1)
 
       Pqueue.enqueue('hello', 5)
-      expect(Pqueue.content[0]).to.eql({priority: 1, element: 'hi'})
-      expect(Pqueue.content[1]).to.eql({priority: 5, element: 'hello'})
+      expect(Pqueue.front()).to.eql({priority: 1, element: 'hi'})
+      expect(Pqueue.back()).to.eql({priority: 5, element: 'hello'})
       expect(Pqueue.length).to.equal(2)
       
       Pqueue.enqueue('nope', 5)
-      expect(Pqueue.content[2]).to.eql({priority: 5, element: 'nope'})
+      expect(Pqueue.back()).to.eql({priority: 5, element: 'nope'})
       expect(Pqueue.length).to.equal(3)
     })
   })
