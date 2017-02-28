@@ -36,8 +36,8 @@ describe.only('PriorityQueue', () => {
     it('returns null for an empty queue', () => {
       let empty = new PriorityQueue()
 
-      empty.dequeue()
-      expect(empty.content).to.equal(null)
+      expect(empty.dequeue()).to.equal(null)
+      expect(empty.content).to.eql([])
       expect(empty.length).to.equal(0)
     })
 
@@ -50,12 +50,12 @@ describe.only('PriorityQueue', () => {
     })
   })
 
-  context.only('#front', () => {
+  context('#front', () => {
     it('returns first item', () => {
       Pqueue.enqueue('classical', 10)
       Pqueue.enqueue('jazz', 6)
       Pqueue.enqueue('psytrance', 1)
-      expect(Pqueue.front()).to.eql({ priority: '1', element: 'psytrance' })
+      expect(Pqueue.front()).to.eql({ priority: 1, element: 'psytrance' })
       expect(Pqueue.length).to.equal(3)
     })
   })
@@ -65,7 +65,7 @@ describe.only('PriorityQueue', () => {
       Pqueue.enqueue('classical', 10)
       Pqueue.enqueue('jazz', 6)
       Pqueue.enqueue('psytrance', 1)
-      expect(Pqueue.back()).to.eql({ priority: '10', element: 'classical' })
+      expect(Pqueue.back()).to.eql({ priority: 10, element: 'classical' })
       expect(Pqueue.length).to.equal(3)
     })
   })
