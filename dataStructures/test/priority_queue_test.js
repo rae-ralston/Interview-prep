@@ -18,13 +18,17 @@ describe.only('PriorityQueue', () => {
   context('#enqueue', () => {
     it('adds elements to a queue', () => {
       Pqueue.enqueue('hi', 1)
-      expect(Pqueue.content).to.eql({1:'hi'})
+      expect(Pqueue.content).to.eql([{priority: 1, element: 'hi'}])
       expect(Pqueue.length).to.equal(1)
 
       Pqueue.enqueue('hello', 5)
-      expect(Pqueue.content).to.eql({1:'hi', 5:'hello'})
+      expect(Pqueue.content[0]).to.eql({priority: 1, element: 'hi'})
+      expect(Pqueue.content[1]).to.eql({priority: 5, element: 'hello'})
       expect(Pqueue.length).to.equal(2)
+      
       Pqueue.enqueue('nope', 5)
+      expect(Pqueue.content[2]).to.eql({priority: 5, element: 'nope'})
+      expect(Pqueue.length).to.equal(3)
     })
   })
 
@@ -41,18 +45,17 @@ describe.only('PriorityQueue', () => {
       Pqueue.enqueue('blues', 2)
       Pqueue.enqueue('hip-hop', 1)
       Pqueue.enqueue('opera', 10)
-      expect(Pqueue.dequeue()).to.eql({ priority: '1', queueItem: 'hip-hop' })
+      expect(Pqueue.dequeue()).to.eql({ priority: 1, element: 'hip-hop' })
       expect(Pqueue.length).to.equal(2)
-      expect(Pqueue.content[1]).to.equal(undefined)
     })
   })
 
-  context('#front', () => {
+  context.only('#front', () => {
     it('returns first item', () => {
       Pqueue.enqueue('classical', 10)
       Pqueue.enqueue('jazz', 6)
       Pqueue.enqueue('psytrance', 1)
-      expect(Pqueue.front()).to.eql({ priority: '1', queueItem: 'psytrance' })
+      expect(Pqueue.front()).to.eql({ priority: '1', element: 'psytrance' })
       expect(Pqueue.length).to.equal(3)
     })
   })
@@ -62,7 +65,7 @@ describe.only('PriorityQueue', () => {
       Pqueue.enqueue('classical', 10)
       Pqueue.enqueue('jazz', 6)
       Pqueue.enqueue('psytrance', 1)
-      expect(Pqueue.back()).to.eql({ priority: '10', queueItem: 'classical' })
+      expect(Pqueue.back()).to.eql({ priority: '10', element: 'classical' })
       expect(Pqueue.length).to.equal(3)
     })
   })

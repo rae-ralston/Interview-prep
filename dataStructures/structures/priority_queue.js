@@ -1,8 +1,4 @@
 
-// content = [
-//   {priority: 1, word:'hi'}
-//   {priority: 2, word:'pizza'}
-// ]
 // const pQueue = new PriorityQueue()
 // pQueue.enqueue("pizza", 100) // adds an element with priority (number) to the back of the queue.
 // pQueue.front()               // returns the front element (highest priority) in the queue or null if the queue is empty.
@@ -15,23 +11,51 @@
 //   1: 'hi',
 //   2: 'pizza'
 // }
+// content = [
+//   {priority: 1, element:'hi'}
+//   {priority: 2, element:'pizza'}
+// ]
 
 export default class PriorityQueue {
   constructor() {
-    this.content = {}
+    this.content = []
     this.length = 0
   }
 
   enqueue(element, priority) {
     if(this.content === null) {
-      this.content = {}
+      this.content = []
     }
     if(typeof priority !== 'number') {
       console.log("please enter a priority number")
     }
-    this.content[priority] = element
+    if(this.content.length === 0) {
+      this.content.push({priority, element})
+    }
+    let content = this.content
+
+    let sortedPriorities = content
+      .reduce((priorityArray, blob) => {
+        priorityArray.push(blob.priority)
+        return priorityArray
+      },[])
+      .sort((a,b) => a - b)
+
+    let isInserted = false
+    let holder, secondHolder
+    let dequeueBlob = content
+      .reduce((firstPriorities, blob, index, collection) => {
+        if(blob.priority <= priority && collection[i + 1].priority > priority) {
+          holder = collection[i]
+          secondHolder = collection[i + 1]
+          collection[i] = {priority, element}
+
+        }
+        return firstPriorities
+      },[])
+    for(let i = 0;i < this.content.length)
+    
     this.length += 1
-    console.log('this.content', this.content)
   }
 
   dequeue() {
@@ -40,11 +64,11 @@ export default class PriorityQueue {
       return this.content
     }
     this.length -= 1
-
-    let sortedKeys = Object.keys(this.content)
-    let temp = {priority: sortedKeys[0], queueItem: this.content[sortedKeys[0]]}
-    delete this.content[sortedKeys[0]]
-    return temp
+    
+    let dequeueSplice = this.content.splice(dequeueBlob[0].i, 1)
+    dequeueSplice = dequeueSplice[0]
+    delete dequeueSplice.i
+    return dequeueSplice
   }
 
   front() {
