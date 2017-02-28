@@ -1,35 +1,36 @@
 import {expect} from 'chai'
-import Queue from '../structures/queue'
+import PriorityQueue from '../structures/priority_queue'
 
-describe('Queue', () => {
-  let queue
-  beforeEach(() => queue = new Queue())
+describe.only('PriorityQueue', () => {
+  let Pqueue
+  beforeEach(() => Pqueue = new PriorityQueue())
 
   it('is a function', () => {
-    expect(Queue).to.be.a('function')
-    expect(queue.enqueue).to.be.a('function')
-    expect(queue.dequeue).to.be.a('function')
-    expect(queue.front).to.be.a('function')
-    expect(queue.back).to.be.a('function')
-    expect(queue.isEmpty).to.be.a('function')
-    expect(queue.Length).to.be.a('function')
+    expect(PriorityQueue).to.be.a('function')
+    expect(Pqueue.enqueue).to.be.a('function')
+    expect(Pqueue.dequeue).to.be.a('function')
+    expect(Pqueue.front).to.be.a('function')
+    expect(Pqueue.back).to.be.a('function')
+    expect(Pqueue.isEmpty).to.be.a('function')
+    expect(Pqueue.Length).to.be.a('function')
   })
 
   context('#enqueue', () => {
     it('adds elements to a queue', () => {
-      queue.enqueue('hi')
-      expect(queue.content).to.eql(['hi'])
-      expect(queue.length).to.equal(1)
+      Pqueue.enqueue('hi', 1)
+      expect(Pqueue.content).to.eql({1:'hi'})
+      expect(Pqueue.length).to.equal(1)
 
-      queue.enqueue('hello')
-      expect(queue.content).to.eql(['hi', 'hello'])
-      expect(queue.length).to.equal(2)
+      Pqueue.enqueue('hello', 5)
+      expect(Pqueue.content).to.eql({1:'hi', 5:'hello'})
+      expect(Pqueue.length).to.equal(2)
+      Pqueue.enqueue('nope', 5)
     })
   })
 
   context('#dequeue', () => {
     it('returns null for an empty queue', () => {
-      let empty = new Queue()
+      let empty = new PriorityQueue()
 
       empty.dequeue()
       expect(empty.content).to.equal(null)
@@ -37,59 +38,60 @@ describe('Queue', () => {
     })
 
     it('returns the top element and decrament length', () => {
-      queue.enqueue('blues')
-      queue.enqueue('hip-hop')
-      queue.enqueue('opera')
-      expect(queue.dequeue()).to.equal('blues')
-      expect(queue.length).to.equal(2)
+      Pqueue.enqueue('blues', 2)
+      Pqueue.enqueue('hip-hop', 1)
+      Pqueue.enqueue('opera', 10)
+      expect(Pqueue.dequeue()).to.eql({ priority: '1', queueItem: 'hip-hop' })
+      expect(Pqueue.length).to.equal(2)
+      expect(Pqueue.content[1]).to.equal(undefined)
     })
   })
 
   context('#front', () => {
     it('returns first item', () => {
-      queue.enqueue('classical')
-      queue.enqueue('jazz')
-      queue.enqueue('psytrance')
-      expect(queue.front()).to.equal('classical')
-      expect(queue.length).to.equal(3)
+      Pqueue.enqueue('classical', 10)
+      Pqueue.enqueue('jazz', 6)
+      Pqueue.enqueue('psytrance', 1)
+      expect(Pqueue.front()).to.eql({ priority: '1', queueItem: 'psytrance' })
+      expect(Pqueue.length).to.equal(3)
     })
   })
 
   context('#back', () => {
     it('returns last item', () => {
-      queue.enqueue('classical')
-      queue.enqueue('jazz')
-      queue.enqueue('psytrance')
-      expect(queue.back()).to.equal('psytrance')
-      expect(queue.length).to.equal(3)
+      Pqueue.enqueue('classical', 10)
+      Pqueue.enqueue('jazz', 6)
+      Pqueue.enqueue('psytrance', 1)
+      expect(Pqueue.back()).to.eql({ priority: '10', queueItem: 'classical' })
+      expect(Pqueue.length).to.equal(3)
     })
   })
 
   context('#isEmpth', () => {
     it('returns true for empty queue', () => {
-      expect(queue.isEmpty()).to.equal(true)
+      expect(Pqueue.isEmpty()).to.equal(true)
     })
 
     it('returns false for non-empty queue', () => {
-      queue.enqueue('no, you\'re wrong')
-      expect(queue.isEmpty()).to.equal(false)
+      Pqueue.enqueue('no, you\'re wrong', 1)
+      expect(Pqueue.isEmpty()).to.equal(false)
     })
   })
 
   context('#length', () => {
     it('returns 0 for empty queue', () => {
-      expect(queue.Length()).to.equal(0)
+      expect(Pqueue.Length()).to.equal(0)
     })
 
     it('returns 1 for 1 unit queue', () => {
-      queue.enqueue('bye boi')
-      expect(queue.Length()).to.equal(1)
+      Pqueue.enqueue('bye boi',1)
+      expect(Pqueue.Length()).to.equal(1)
     })
 
     it('returns 2 for 2 unit queue', () => {
-      queue.enqueue('i said good day')
-      queue.enqueue('sir i said good day!')
-      expect(queue.Length()).to.equal(2)
+      Pqueue.enqueue('i said good day', 2)
+      Pqueue.enqueue('sir i said good day!', 3)
+      expect(Pqueue.Length()).to.equal(2)
     })
   })
 })

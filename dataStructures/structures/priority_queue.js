@@ -1,13 +1,37 @@
-export default class Queue {
+
+// content = [
+//   {priority: 1, word:'hi'}
+//   {priority: 2, word:'pizza'}
+// ]
+// const pQueue = new PriorityQueue()
+// pQueue.enqueue("pizza", 100) // adds an element with priority (number) to the back of the queue.
+// pQueue.front()               // returns the front element (highest priority) in the queue or null if the queue is empty.
+// pQueue.back()                // returns the back element (lowest priority) in the queue or null if the queue is empty.
+// pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
+// pQueue.isEmpty()             // returns true if the queue is empty or false if not.
+// pQueue.length()              // returns the number of elements in the queue.
+
+// content = {
+//   1: 'hi',
+//   2: 'pizza'
+// }
+
+export default class PriorityQueue {
   constructor() {
-    this.content = []
+    this.content = {}
     this.length = 0
   }
 
-  enqueue(element) {
-    if(this.content === null) this.content = []
-    this.content.push(element)
+  enqueue(element, priority) {
+    if(this.content === null) {
+      this.content = {}
+    }
+    if(typeof priority !== 'number') {
+      console.log("please enter a priority number")
+    }
+    this.content[priority] = element
     this.length += 1
+    console.log('this.content', this.content)
   }
 
   dequeue() {
@@ -16,7 +40,11 @@ export default class Queue {
       return this.content
     }
     this.length -= 1
-    return this.content.splice(0,1).toString()
+
+    let sortedKeys = Object.keys(this.content)
+    let temp = {priority: sortedKeys[0], queueItem: this.content[sortedKeys[0]]}
+    delete this.content[sortedKeys[0]]
+    return temp
   }
 
   front() {
@@ -24,7 +52,11 @@ export default class Queue {
       this.content = null
       return this.content
     }
-    return this.content.slice(0, 1).toString()
+    let sortedKeys = Object.keys(this.content)
+    return {
+      priority: sortedKeys[0], 
+      queueItem: this.content[sortedKeys[0]]
+    }
   }
 
   back() {
@@ -32,7 +64,11 @@ export default class Queue {
       this.content = null
       return this.content
     }
-    return this.content.slice(this.content.length - 1).toString()
+    let sortedKeys = Object.keys(this.content)
+    return {
+      priority: sortedKeys[sortedKeys.length - 1], 
+      queueItem: this.content[sortedKeys[sortedKeys.length - 1]]
+    }
   }
 
   isEmpty() {
