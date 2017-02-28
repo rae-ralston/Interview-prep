@@ -31,8 +31,8 @@ describe('Queue', () => {
     it('returns null for an empty queue', () => {
       let empty = new Queue()
 
-      empty.dequeue()
-      expect(empty.content).to.equal(null)
+      expect(empty.dequeue()).to.equal(null)
+      expect(empty.content).to.eql([])
       expect(empty.length).to.equal(0)
     })
 
