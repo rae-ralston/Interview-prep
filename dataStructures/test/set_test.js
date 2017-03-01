@@ -8,11 +8,16 @@ describe.only('Set', () => {
   it('is a function', () => {
     expect(Set).to.be.a('function')
     expect(set.add).to.be.a('function')
-    // expect(set.deset).to.be.a('function')
-    // expect(set.front).to.be.a('function')
-    // expect(set.back).to.be.a('function')
-    // expect(set.isEmpty).to.be.a('function')
-    // expect(set.Length).to.be.a('function')
+    expect(set.isEmpty).to.be.a('function')
+    expect(set.contains).to.be.a('function')
+    expect(set.remove).to.be.a('function')
+    expect(set.forEach).to.be.a('function')
+    expect(set.size).to.be.a('function')
+    expect(set.union).to.be.a('function')
+    expect(set.intersect).to.be.a('function')
+    expect(set.difference).to.be.a('function')
+    expect(set.isSubset).to.be.a('function')
+    expect(set.clone).to.be.a('function')
   })
 
   context('.add', () => {
@@ -55,8 +60,8 @@ describe.only('Set', () => {
       set.add(2)
       set.add(3)
       set.remove(2)
+      set.remove(4)
       expect(set.contains(2)).to.equal(false)
-      expect(set.contains(3)).to.equal(true)
     })
   })
 
@@ -100,6 +105,45 @@ describe.only('Set', () => {
       set.add(2)
       set.add(3)
       expect(set.intersect([3,4,5])).to.eql([3])
+      expect(set.intersect('hi?')).to.eql([2,3])
     })
+  })
+
+  context('.difference', () => {
+    it('creates a union of two arrays', () => {
+      set.add(2)
+      set.add(3)
+      expect(set.difference([3,4,5])).to.eql([4,5])
+      expect(set.difference('hi?')).to.eql([2,3])
+    })
+  })
+
+  context('.subset', () => {
+    it('returns true if input is a subset of set', () => {
+      set.add(2)
+      set.add(3)
+      set.add(4)
+      set.add(5)
+      expect(set.isSubset([4,5])).to.equal(true)
+      expect(set.isSubset([6,7])).to.equal(false)
+      expect(set.isSubset([4,5,6,7,8,9])).to.equal(false)
+      expect(set.isSubset([3,5])).to.equal(true)
+    })
+
+  context('.clone()', () => {
+
+    it('should return a Set object', () => {
+      expect(set.clone()).to.be.instanceof(Set)
+      expect(set.clone()).to.have.keys('content')
+    })
+
+    it('should contain all of the elements of the cloned Set', () => {
+      set.add(5)
+      set.add(6)
+      set.add(7)
+      expect(set.clone()).to.eql({'content': [5, 6, 7]})
+    })
+
+  })
   })
 })
