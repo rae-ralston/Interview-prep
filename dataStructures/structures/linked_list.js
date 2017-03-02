@@ -50,9 +50,19 @@ export default class LinkedList {
       do {
         nextNode = node
         node.data() === element ? node : node = node.pointer()
-      } while (nextNode.pointer !== null)
+      } 
+      while (nextNode.pointer !== null)
     }
     return -1
+  }
+
+  findWithPrev(element) {
+    // go through each node
+    // holder for prev node
+    do {
+
+    }
+    while()
   }
 
   insert(element) {
@@ -81,6 +91,8 @@ export default class LinkedList {
     }
     this.size +=1
   }
+
+
 
 // linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
   insertBefore(element, data) {
