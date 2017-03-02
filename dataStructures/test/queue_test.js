@@ -29,10 +29,8 @@ describe('Queue', () => {
 
   context('#dequeue', () => {
     it('returns null for an empty queue', () => {
-      let empty = new Queue()
-
-      expect(empty.dequeue()).to.equal(null)
-      expect(empty.length).to.equal(0)
+      expect(queue.dequeue()).to.equal(null)
+      expect(queue.length).to.equal(0)
     })
 
     it('returns the top element and decrement length', () => {
