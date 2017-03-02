@@ -1,70 +1,129 @@
+class Node {
+  constructor(data) {
+    this.data = data
+    this.pointer = null
+  }
+
+  data() {
+    return this.data
+  }
+
+  pointer() {
+    return this.pointer
+  }
+
+}
+
 export default class LinkedList {
   constructor() {
-
+    this.first = null
+    this.last = null
+    this.size = 0
   }
 
-// linkedList.getHeadNode()           // Returns the first node in the list
   getHeadNode() {
-
+    return this.first
   }
 
-// linkedList.getTailNode()           // Returns the last node in the list
   getTailNode() {
-
+    return this.last
   }
 
-// linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
   contains(element) {
-
+    if(!this.isEmpty){
+      let node = this.getHeadNode()
+      let nextNode
+      
+      do {
+        nextNode = node
+        node.data() === element ? true : node = node.pointer()
+      }
+      while (nextNode.pointer !== null) 
+    }
+    return false
   }
 
-// linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
   find(element) {
-
+    if(!this.isEmpty()){
+      let node = this.getHeadNode()
+      let newNode
+      do {
+        nextNode = node
+        node.data() === element ? node : node = node.pointer()
+      } while (nextNode.pointer !== null)
+    }
+    return -1
   }
 
-// linkedList.insert("bananas")       // Inserts a node (with the provided data) to the tail of the list
   insert(element) {
+    let node = new Node(element)
 
+    if(this.isEmpty) {
+      this.first = node
+      this.last = node
+    } else {
+      let previous = this.last
+      previous.pointer = node
+      this.last = node
+    }
+    this.size += 1
   }
 
-// linkedList.insertFirst("bananas")  // Inserts a node (with the provided data) to the head of the list
   insertFirst(element) {
+    let node = new Node(element)
 
+    if(this.isEmpty) {
+      this.first = node
+      this.last = node
+    } else {
+      node.pointer = this.first
+      this.first = node
+    }
+    this.size +=1
   }
 
 // linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
   insertBefore(element, data) {
+    if(this.find() !== -1) {
 
+    }
   }
 
 // linkedList.insertAfter("apples", "bananas")  // Inserts a node (with data "bananas") after the first node containing "apples"
   insertAfter(element, data) {
-
+    let foundElement = this.find()
+    if(foundElement !== -1){
+      let newNode = new Node(data)
+      let holder = foundElement.pointer()
+      foundElement.pointer = newNode
+      newNode.pointer = holder
+    }
   }
 
-// linkedList.remove()                // Removes the tail node from the list
+// Removes the tail node from the list
   remove() {
+    let last = this.getTailNode
 
   }
 
-// linkedList.removeFirst()           // Removes the head node from the list
+// Removes the head node from the list
   removeFirst() {
-
+    let first = this.getHeadNode
+    this.head = first.pointer
   }
 
-// linkedList.isEmpty()               // Determines if the list is empty or not
   isEmpty() {
-
+    return this.first === null && this.last === null
   }
 
-// linkedList.size()                  // Returns the size of the list (number of nodes)
+// Returns the size of the list (number of nodes)
   size() {
 
   }
 
-// linkedList.clear() 
   clear() {
-
+    this.first = null
+    this.last = null
+    this.size = 0
   }
 }
