@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import PriorityQueue from '../structures/priority_queue'
 
-describe.only('PriorityQueue', () => {
+describe('PriorityQueue', () => {
   let Pqueue
   beforeEach(() => Pqueue = new PriorityQueue())
 
