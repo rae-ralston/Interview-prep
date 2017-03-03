@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 import Set from '../structures/set'
 
-describe.only('Set', () => {
+describe('Set', () => {
   let set
   beforeEach(() => set = new Set([]))
 

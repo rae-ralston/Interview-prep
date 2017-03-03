@@ -18,25 +18,22 @@ describe('Queue', () => {
   context('#enqueue', () => {
     it('adds elements to a queue', () => {
       queue.enqueue('hi')
-      expect(queue.content).to.eql(['hi'])
+      expect(queue.front()).to.eql('hi')
       expect(queue.length).to.equal(1)
 
       queue.enqueue('hello')
-      expect(queue.content).to.eql(['hi', 'hello'])
+      expect(queue.back()).to.eql('hello')
       expect(queue.length).to.equal(2)
     })
   })
 
   context('#dequeue', () => {
     it('returns null for an empty queue', () => {
-      let empty = new Queue()
-
-      empty.dequeue()
-      expect(empty.content).to.equal(null)
-      expect(empty.length).to.equal(0)
+      expect(queue.dequeue()).to.equal(null)
+      expect(queue.length).to.equal(0)
     })
 
-    it('returns the top element and decrament length', () => {
+    it('returns the top element and decrement length', () => {
       queue.enqueue('blues')
       queue.enqueue('hip-hop')
       queue.enqueue('opera')
@@ -46,7 +43,7 @@ describe('Queue', () => {
   })
 
   context('#front', () => {
-    it('returns first item', () => {
+    it('returns first item and doesn\'t modify length', () => {
       queue.enqueue('classical')
       queue.enqueue('jazz')
       queue.enqueue('psytrance')
@@ -56,7 +53,7 @@ describe('Queue', () => {
   })
 
   context('#back', () => {
-    it('returns last item', () => {
+    it('returns last item and doesn\'t modify length', () => {
       queue.enqueue('classical')
       queue.enqueue('jazz')
       queue.enqueue('psytrance')
@@ -65,7 +62,7 @@ describe('Queue', () => {
     })
   })
 
-  context('#isEmpth', () => {
+  context('#isEmpty', () => {
     it('returns true for empty queue', () => {
       expect(queue.isEmpty()).to.equal(true)
     })

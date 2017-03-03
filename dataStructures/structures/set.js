@@ -4,7 +4,7 @@ export default class Set {
   }
 
   add(element) {
-    return !this.content.includes(element)
+    return !this.contains(element)
     ? this.content.push(element) 
     : console.log('Can only add unique elements to set.')
   }
