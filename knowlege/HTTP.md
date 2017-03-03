@@ -16,3 +16,5 @@ Hypertext Transfer Protocol
     + HTTP version, 
 - Response anatomy
 - CORS
+    + Cross Origin Reference S...
+    + 
