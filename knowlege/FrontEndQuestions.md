@@ -73,19 +73,30 @@ This file contains a number of front-end interview questions that can be used wh
   - Floats let page other elements wrap around them. The term comes from print design, it describes text flowing around pictures. If an element has float right on it for example, the other elements on the page will appear to the left of the element. for items to not continue to flow around the element (for example to push a footer below a primary section) you'll need to clear them.
 * **Describe z-index and how stacking context is formed.**
   - z-index is the way that elemets are 'stacked' relative to the viewport. items with a lower z index will be 'below' elements with a higher z index. Stacking context is formed automatically and can be influenced by elements that need additional rendering (opacity change, transforms, etc) or if the z-index attribut is used.
+  - MORE RESEARCH ON STACKING CONTEXT
 * **Describe BFC(Block Formatting Context) and how it works.**
-  - 
-* What are the various clearing techniques and which is appropriate for what context?
+  - Block formatting context (BFC) is part of how the page renders in the browser. Things within elements are rendered in the same Block Formatting context. Floats, absolutely postitioned elements, inline blocks, table cells are some of the elements that create a new blcok formatting context.
+  - MORE RESEARCH ON THIS
+* **What are the various clearing techniques and which is appropriate for what context?**
+  - Clear: both; This clears floats on both sides. You can also clear on one side.
+  - MORE RESEARCH ON THIS
 * Explain CSS sprites, and how you would implement them on a page or site.
+  - 
 * What are your favourite image replacement techniques and which do you use when?
 * How would you approach fixing browser-specific styling issues?
 * How do you serve your pages for feature-constrained browsers?
   * What techniques/processes do you use?
 * What are the different ways to visually hide content (and make it available only for screen readers)?
+  - display:none;
+  - opacity: 0;
+  - anser this none.
 * Have you ever used a grid system, and if so, what do you prefer?
-* Have you used or implemented media queries or mobile specific layouts/CSS?
-* Are you familiar with styling SVG?
-* How do you optimize your webpages for print?
+* **Have you used or implemented media queries or mobile specific layouts/CSS?**
+  - Yes, in most projects. When you create a media query
+* **Are you familiar with styling SVG?**
+  - Yes.  SVG's are vector images rendered through canvas. Theyr'e easy to animate and much more space efficient than animated gif's. They're also more dynamic and often cleaner looking.
+* **How do you optimize your webpages for print?**
+  - ... i don't.
 * What are some of the "gotchas" for writing efficient CSS?
 * What are the advantages/disadvantages of using CSS preprocessors?
   * Describe what you like and dislike about the CSS preprocessors you have used.
