@@ -86,13 +86,14 @@ This file contains a number of front-end interview questions that can be used wh
 * How would you approach fixing browser-specific styling issues?
 * How do you serve your pages for feature-constrained browsers?
   * What techniques/processes do you use?
-* What are the different ways to visually hide content (and make it available only for screen readers)?
+* **What are the different ways to visually hide content (and make it available only for screen readers)?**
   - display:none;
   - opacity: 0;
   - anser this none.
-* Have you ever used a grid system, and if so, what do you prefer?
+* **Have you ever used a grid system, and if so, what do you prefer?**
+  - I've used flexbox. I haven't used the new grid standards because they're not widely used in browsers, though I have looked into it and would adopt it. Flexbox is my favorite, it really makes sense to me, I've worked with it a lot. 
 * **Have you used or implemented media queries or mobile specific layouts/CSS?**
-  - Yes, in most projects. When you create a media query
+  - Yes, in most projects. When you create a media query you add the screen sizes and types that you're customizing for then specify the way you want certain things to behave at that size.  Usually I design for a certain screen size (mobile first, for example)
 * **Are you familiar with styling SVG?**
   - Yes.  SVG's are vector images rendered through canvas. Theyr'e easy to animate and much more space efficient than animated gif's. They're also more dynamic and often cleaner looking.
 * **How do you optimize your webpages for print?**
@@ -118,9 +119,12 @@ This file contains a number of front-end interview questions that can be used wh
 #### JS Questions:
 
 * Explain event delegation
-* Explain how `this` works in JavaScript
-* Explain how prototypal inheritance works
-* What do you think of AMD vs CommonJS?
+* **Explain how `this` works in JavaScript**
+  - This refers to the current scope.  The context of `this` can be passed with `.bind` or with `=>`
+* **Explain how prototypal inheritance works**
+  - prototypal inheritance: all prototypes are objects in js. inheritance means that it inherits the characteristics of the thing it's being created from. for example when you create new children from a parent class.
+* **What do you think of AMD vs CommonJS?**
+  - 
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
   * What needs to be changed to properly make it an IIFE?
 * What's the difference between a variable that is: `null`, `undefined` or undeclared?
