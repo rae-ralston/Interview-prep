@@ -5,7 +5,7 @@ class Stack {
   }
 
   push(value) {
-    
+    //add value to object if not there
   }
 
   pop() {
