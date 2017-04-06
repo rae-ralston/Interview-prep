@@ -5,20 +5,26 @@ class Stack {
   }
 
   push(value) {
+    
   }
 
   pop() {
+
   }
 
   peak() {
+
   }
 
   size() {
+
   }
 
   contains(value) {
+
   }
 
-  until(value){
+  until(value) {
+
   }
 }
