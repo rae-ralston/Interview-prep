@@ -1,2 +1,4 @@
-- [ ] Node HTTP Server 
+- [ ] Node HTTP Server
     - (Node: Anatomy of an HTTP Request)[https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/]
+- (Web Browser Platformer) [https://hacks.mozilla.org/2017/04/html5-games-workshop-make-a-platformer-game-with-javascript/?utm_source=Viking+Code+School&utm_campaign=dac07fe1ec-EMAIL_CAMPAIGN_2017_04_07&utm_medium=email&utm_term=0_74ed491ed8-dac07fe1ec-130136557]
+- Video Streaming Service
