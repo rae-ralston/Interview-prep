@@ -6,4 +6,5 @@ while i <= 10
   end
 exit
 
-# run with $ irb -r ./FILENAME.rb
+# run with `$ irb -r ./FILENAME.rb`
+# or `$ ruby FILENAME.rb`
