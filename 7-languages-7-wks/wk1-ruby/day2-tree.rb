@@ -2,8 +2,8 @@ class Tree
   attr_accessor :children, :node_name
 
   def initialize(name, children=[])
-    @children = children
     @node_name = name
+    @children = children
   end
 
   def visit_all(&block)
@@ -18,7 +18,10 @@ end
 
 ruby_tree = Tree.new( "Ruby",[
     Tree.new("Reia"),
-    Tree.new("MacRuby")
+    Tree.new("MacRuby", [
+        Tree.new("babyTree")
+      ]
+    )
   ]
 )
 
