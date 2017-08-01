@@ -10,7 +10,7 @@ puts truth_teller
 puts truth_teller(:profession => :lawyer)
 
 
-puts '### ---   ---   ---'
+puts
 
 # adds method 'my_times' on class Integer, which just does something a number of times
 # 'yield' invokes cold block in curly's called below
@@ -27,7 +27,8 @@ end
 4.my_times {puts 'You can do itttt!'}
 #prints 'you can do itt' 4 times
 
-puts '### ---   ---   ---'
+puts
+
 #yield is most common way of doing blocks
 # old way
 def calculate (a, b, operation)
