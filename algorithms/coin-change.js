@@ -1,3 +1,5 @@
+// from https://www.hackerrank.com/challenges/coin-change
+
 function getWays(n, c){
     let sortedCoins = c.sort((a, b) => a - b).reverse()
     console.log(n, sortedCoins)
