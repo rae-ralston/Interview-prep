@@ -1,7 +1,8 @@
 # Interview-prep
 Interview Prep and CompSci basics review.
 
-###File Structure
+- Dec 20, 2017: about to get back on the interview train, time to get back to algorithm practice.
+  - GOAL: by Dec 1st come up with a study plan
 
 
 
