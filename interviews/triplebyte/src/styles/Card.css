@@ -1,0 +1,13 @@
+/*cursor: pointer;*/
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 10px;
+  margin: 5px 0;
+}
+
+.arrow {
+  cursor: pointer;
+}
